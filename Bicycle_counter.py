@@ -57,6 +57,11 @@ st.subheader('Total Cyclists by Month')
 
 
 # Calculate and print sum value
+
+month_order = ["January", "February", "March", "April", "May", "June", 
+               "July", "August", "September", "October", "November", "December"
+              ]
+
 monthly_totals = (
     data.groupby ('Month')[
     'Fremont Bridge Sidewalks, south of N 34th St Total', 
