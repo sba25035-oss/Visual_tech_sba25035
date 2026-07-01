@@ -1,0 +1,127 @@
+#Importing libraries
+
+import streamlit as st
+import pandas as pd
+import numpy as np
+import plotly.express as px
+
+#Adding a Title to my App
+
+st.title("Bicycle Counter Dashboard")
+
+
+#Fetch some data
+
+DATE_COLUMN = "Date"
+
+DATA_URL = ("Cleaned_Fremont_Bridge_Bicycle_Counter1.csv")
+
+
+@st.cache_data
+def load_data(nrows):
+    data = pd.read_csv(DATA_URL, nrows=nrows)
+    lowercase = lambda x: str(x).lower()
+    data[DATE_COLUMN] = pd.to_datetime(data[DATE_COLUMN])
+    return data
+
+
+# Create a text element and let the reader know the data is loading.
+data_load_state = st.text('Loading data...')
+
+# Load rows of data into the dataframe.
+data = load_data(None)
+# Notify the reader that the data was successfully loaded.
+data_load_state.text('Loading data...done!')
+
+#Inspect the raw data
+st.subheader('Raw data')
+st.write(data)
+
+
+#Adding a subheader
+st.subheader('Total Cyclists by Year')
+
+#Drawing a histogram
+hist_values = (
+    data.groupby(data[DATE_COLUMN].dt.year)[
+                 'Fremont Bridge Sidewalks, south of N 34th St Total'
+                 ].sum()
+    )
+
+st.bar_chart(hist_values)
+
+st.subheader('Total Cyclists by Month')
+
+# Total number of cyclists by month
+
+
+
+# Calculate and print sum value
+monthly_totals = (
+    data.groupby ('Month')[
+    'Fremont Bridge Sidewalks, south of N 34th St Total', 
+    ]
+    .sum()
+
+)
+
+st.line_chart(monthly_totals)
+
+
+
+st.subheader('Average Cyclists by Month')
+
+# Average number of cyclists by month
+
+
+
+# Calculate and print sum value
+
+month_order = ["January", "February", "March", "April", "May", "June", 
+               "July", "August", "September", "October", "November", "December"
+              ]
+average_monthly_totals = (
+    data.groupby ('Month')[
+    'Fremont Bridge Sidewalks, south of N 34th St Total', 
+    ]
+    .mean()
+    .reindex(month_order)
+
+)
+
+st.line_chart(average_monthly_totals)
+
+
+st.subheader('Maximum Cyclists by Month')
+
+# Maximum number of cyclists by month
+
+
+
+# Calculate and print sum value
+
+month_order = ["January", "February", "March", "April", "May", "June", 
+               "July", "August", "September", "October", "November", "December"
+              ]
+max_monthly_totals = (
+    data.groupby ('Month')[
+    'Fremont Bridge Sidewalks, south of N 34th St Total', 
+    ]
+    .max()
+    .reindex(month_order)
+
+)
+
+st.line_chart(max_monthly_totals)
+
+
+
+
+               
+
+
+
+
+
+
+
