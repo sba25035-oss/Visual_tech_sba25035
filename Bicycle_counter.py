@@ -61,17 +61,16 @@ st.subheader('Total Cyclists by Month')
 month_order = ["January", "February", "March", "April", "May", "June", 
                "July", "August", "September", "October", "November", "December"
               ]
-filtered_data["Month"] = pd.Categorical(
-    filtered_data["Month"],
+data["Month"] = pd.Categorical(
+    data["Month"],
     categories=month_order,
     ordered=True
 )
 
 monthly_totals = (
-    filtered_data
+    data
     .sort_values("Month")
-    .groupby ('Month')[
-    'Fremont Bridge Sidewalks, south of N 34th St Total', 
+    .groupby ("Month")["Fremont Bridge Sidewalks, south of N 34th St Total"] 
     .sum()
     reset_index()
 
