@@ -72,7 +72,7 @@ monthly_totals = (
     .sort_values("Month")
     .groupby ("Month")["Fremont Bridge Sidewalks, south of N 34th St Total"] 
     .sum()
-    reset_index()
+    .reset_index()
 
 )
 
