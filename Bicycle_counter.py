@@ -8,6 +8,7 @@ import plotly.express as px
 #Adding a Title to my App
 
 st.title("Bicycle Counter Dashboard")
+st.text("Hello\n[Welcome](to the Fremont Bicycle Counter!).")
 
 
 #Fetch some data
