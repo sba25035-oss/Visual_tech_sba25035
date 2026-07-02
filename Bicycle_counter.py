@@ -52,7 +52,7 @@ hist_values = (
         .reset_index()
 )
 
-hist_values.columns = ["Year", "Total"]
+hist_values.columns = ["Year", "Fremont Bridge Sidewalks, south of N 34th St Total"]
 
 fig = px.bar(
 x ="Year", 
