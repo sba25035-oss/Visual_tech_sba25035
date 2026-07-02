@@ -58,6 +58,11 @@ st.divider()
 
 
 
+
+
+
+
+
 with col2:
     st.subheader('Total Cyclists by Month')
 
