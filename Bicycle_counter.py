@@ -50,11 +50,10 @@ hist_values = (
 
 st.bar_chart(hist_values)
 
+
 st.subheader('Total Cyclists by Month')
 
 # Total number of cyclists by month
-
-
 
 # Calculate and print sum value
 
@@ -84,46 +83,55 @@ st.subheader('Average Cyclists by Month')
 
 # Average number of cyclists by month
 
-
-
 # Calculate and print sum value
 
 month_order = ["January", "February", "March", "April", "May", "June", 
                "July", "August", "September", "October", "November", "December"
               ]
+data["Month"] = pd.Categorical(
+    data["Month"],
+    categories=month_order,
+    ordered=True
+)
+
 average_monthly_totals = (
-    data.groupby ('Month')[
-    'Fremont Bridge Sidewalks, south of N 34th St Total', 
-    ]
+    data
+    .sort_values("Month")
+    .groupby ("Month")["Fremont Bridge Sidewalks, south of N 34th St Total"] 
     .mean()
-    .reindex(month_order)
+    .reset_index()
 
 )
 
-st.line_chart(average_monthly_totals)
+st.line_chart(average_monthly_totals.set_index("Month"))
+
 
 
 st.subheader('Maximum Cyclists by Month')
 
 # Maximum number of cyclists by month
 
-
-
 # Calculate and print sum value
 
 month_order = ["January", "February", "March", "April", "May", "June", 
                "July", "August", "September", "October", "November", "December"
               ]
+data["Month"] = pd.Categorical(
+    data["Month"],
+    categories=month_order,
+    ordered=True
+)
+
 max_monthly_totals = (
-    data.groupby ('Month')[
-    'Fremont Bridge Sidewalks, south of N 34th St Total', 
-    ]
+    data
+    .sort_values("Month")
+    .groupby ("Month")["Fremont Bridge Sidewalks, south of N 34th St Total"] 
     .max()
-    .reindex(month_order)
+    .reset_index()
 
 )
 
-st.line_chart(max_monthly_totals)
+st.line_chart(max_monthly_totals.set_index("Month"))
 
 
 
