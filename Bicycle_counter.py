@@ -43,8 +43,18 @@ if show_data:
 
 green = "#00C853"
 
+
+hist_values = (
+        data.groupby(data[DATE_COLUMN].dt.year)[
+                 'Fremont Bridge Sidewalks, south of N 34th St Total'
+        ]
+        .sum()
+        .reset_index()
+)
+
+hist_values.columns = ["Year", "Total"]
+
 fig = px.bar(
-hist_values.reset_index(), 
 x ="Year", 
 y="Fremont Bridge Sidewalks, south of N 34th St Total",
 color_discrete_sequence=[green],
