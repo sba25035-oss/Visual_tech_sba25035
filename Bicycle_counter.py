@@ -46,7 +46,7 @@ green = "#00C853"
 
 hist_values = (
         data.groupby(data[DATE_COLUMN].dt.year)[
-                 'Fremont Bridge Sidewalks, south of N 34th St Total'
+                 'Total'
         ]
         .sum()
         .reset_index()
@@ -56,7 +56,7 @@ hist_values.columns = ["Year", "Fremont Bridge Sidewalks, south of N 34th St Tot
 
 fig = px.bar(
 x ="Year", 
-y="Fremont Bridge Sidewalks, south of N 34th St Total",
+y="Total",
 color_discrete_sequence=[green],
 title="Total Cyclists By Year")
 fig.show()
