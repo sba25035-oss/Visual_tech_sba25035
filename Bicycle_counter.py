@@ -54,6 +54,8 @@ with col1:
     )
 
     st.bar_chart(hist_values)
+    user_colour = st.color_picker(label='Choose a colour for your plot', 
+                              value='#1F9A2E')
     st.divider()
 
 #Total cyclists by Month
