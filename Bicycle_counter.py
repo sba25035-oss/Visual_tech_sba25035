@@ -86,22 +86,26 @@ with col2:
 
 
 
-st.subheader('Average Cyclists by Month')
+#Adding columns for layout
+col3, col4 = st.columns(2)
+
+with col3:
+    st.subheader('Average Cyclists by Month')
 
 # Average number of cyclists by month
 
 # Calculate and print mean value
 
-month_order = ["January", "February", "March", "April", "May", "June", 
+    month_order = ["January", "February", "March", "April", "May", "June", 
                "July", "August", "September", "October", "November", "December"
               ]
-data["Month"] = pd.Categorical(
+    data["Month"] = pd.Categorical(
     data["Month"],
     categories=month_order,
     ordered=True
 )
 
-average_monthly_totals = (
+    average_monthly_totals = (
     data
     .sort_values("Month")
     .groupby ("Month")["Fremont Bridge Sidewalks, south of N 34th St Total"] 
@@ -110,26 +114,26 @@ average_monthly_totals = (
 
 )
 
-st.area_chart(average_monthly_totals.set_index("Month"))
+    st.area_chart(average_monthly_totals.set_index("Month"))
 
 
-
-st.subheader('Maximum Cyclists by Month')
+with col4:
+    st.subheader('Maximum Cyclists by Month')
 
 # Maximum number of cyclists by month
 
 # Calculate and print max value
 
-month_order = ["January", "February", "March", "April", "May", "June", 
+    month_order = ["January", "February", "March", "April", "May", "June", 
                "July", "August", "September", "October", "November", "December"
               ]
-data["Month"] = pd.Categorical(
+    data["Month"] = pd.Categorical(
     data["Month"],
     categories=month_order,
     ordered=True
 )
 
-max_monthly_totals = (
+    max_monthly_totals = (
     data
     .sort_values("Month")
     .groupby ("Month")["Fremont Bridge Sidewalks, south of N 34th St Total"] 
@@ -138,7 +142,7 @@ max_monthly_totals = (
 
 )
 
-st.line_chart(max_monthly_totals.set_index("Month"))
+    st.line_chart(max_monthly_totals.set_index("Month"))
 
 
 
