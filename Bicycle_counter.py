@@ -44,7 +44,7 @@ if show_data:
 fig = px.bar(
 hist_values.reset_index(), 
 x ="Year", 
-y="Fremont Bridge Sidewalks, south of N 34th St Total"
+y="Fremont Bridge Sidewalks, south of N 34th St Total",
 color_discrete_sequence=[green]
 title="Total Cyclists By Year")
 fig.show()
