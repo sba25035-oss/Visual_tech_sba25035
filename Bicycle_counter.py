@@ -39,27 +39,6 @@ if show_data:
     st.subheader('Raw data')
     st.write(data)
 
-#Plotly bar chart
-
-green = "#00C853"
-
-
-hist_values = (
-        data.groupby(data[DATE_COLUMN].dt.year)[
-                 'Total'
-        ]
-        .sum()
-        .reset_index()
-)
-
-hist_values.columns = ["Year", "Fremont Bridge Sidewalks, south of N 34th St Total"]
-
-fig = px.bar(
-x ="Year", 
-y="Total",
-color_discrete_sequence=[green],
-title="Total Cyclists By Year")
-fig.show()
 
 
 #Adding columns for layout
