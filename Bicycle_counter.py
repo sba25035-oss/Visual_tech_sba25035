@@ -40,7 +40,7 @@ if show_data:
     st.write(data)
 
 
-#Adding a subheader
+#Adding columns for layout
 col1, col2 = st.columns(2)
 
 with col1:
@@ -56,17 +56,11 @@ with col1:
 st.bar_chart(hist_values)
 st.divider()
 
-
-
-
-
-
-
+#Total cyclists by Month
 
 with col2:
     st.subheader('Total Cyclists by Month')
 
-# Total number of cyclists by month
 
 # Calculate and print sum value
 
