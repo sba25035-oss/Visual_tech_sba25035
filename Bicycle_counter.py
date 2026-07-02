@@ -105,7 +105,7 @@ average_monthly_totals = (
 
 )
 
-st.line_chart(average_monthly_totals.set_index("Month"))
+st.area_chart(average_monthly_totals.set_index("Month"))
 
 
 
