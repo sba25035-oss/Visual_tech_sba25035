@@ -34,8 +34,9 @@ data = load_data(None)
 data_load_state.text('Loading data...done!')
 
 #Inspect the raw data
-st.subheader('Raw data')
-st.write(data)
+checkbox('Checkbox')
+    st.subheader('Raw data')
+    st.write(data)
 
 
 #Adding a subheader
