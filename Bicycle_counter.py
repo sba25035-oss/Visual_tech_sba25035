@@ -170,7 +170,7 @@ st.line_chart(min_monthly_totals.set_index("Month"))
 st.subheader('East and West Sidewalk Yearly Totals')
 
 sidewalk_totals = (
-    data.groupby ('Year')[
+    data.groupby(data[DATE_COLUMN].dt.year)[
         [
     
             'Fremont Bridge Sidewalks, south of N 34th St Cyclist West Sidewalk', 
