@@ -64,25 +64,25 @@ with col2:
 
 # Calculate and print sum value
 
-month_order = ["January", "February", "March", "April", "May", "June", 
+    month_order = ["January", "February", "March", "April", "May", "June", 
                "July", "August", "September", "October", "November", "December"
               ]
-data["Month"] = pd.Categorical(
+    data["Month"] = pd.Categorical(
     data["Month"],
     categories=month_order,
     ordered=True
 )
 
-monthly_totals = (
-    data
-    .sort_values("Month")
-    .groupby ("Month")["Fremont Bridge Sidewalks, south of N 34th St Total"] 
-    .sum()
-    .reset_index()
+    monthly_totals = (
+        data
+        .sort_values("Month")
+        .groupby ("Month")["Fremont Bridge Sidewalks, south of N 34th St Total"] 
+        .sum()
+        .reset_index()
 
-)
+    )
 
-st.line_chart(monthly_totals.set_index("Month"))
+    st.line_chart(monthly_totals.set_index("Month"))
 
 
 
