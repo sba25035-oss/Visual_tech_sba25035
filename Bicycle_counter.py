@@ -39,6 +39,16 @@ if show_data:
     st.subheader('Raw data')
     st.write(data)
 
+#Plotly bar chart
+
+fig = px.bar(
+hist_values.reset_index(), 
+x ="Year", 
+y="Fremont Bridge Sidewalks, south of N 34th St Total"
+color_discrete_sequence=[green]
+title="Total Cyclists By Year")
+fig.show()
+
 
 #Adding columns for layout
 col1, col2 = st.columns(2)
