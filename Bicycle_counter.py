@@ -137,7 +137,31 @@ st.line_chart(max_monthly_totals.set_index("Month"))
 
 
 
+st.subheader('Minimum Cyclists by Month')
 
+# Minimum number of cyclists by month
+
+# Calculate and print sum value
+
+month_order = ["January", "February", "March", "April", "May", "June", 
+               "July", "August", "September", "October", "November", "December"
+              ]
+data["Month"] = pd.Categorical(
+    data["Month"],
+    categories=month_order,
+    ordered=True
+)
+
+min_monthly_totals = (
+    data
+    .sort_values("Month")
+    .groupby ("Month")["Fremont Bridge Sidewalks, south of N 34th St Total"] 
+    .min()
+    .reset_index()
+
+)
+
+st.line_chart(min_monthly_totals.set_index("Month"))
                
 
 
