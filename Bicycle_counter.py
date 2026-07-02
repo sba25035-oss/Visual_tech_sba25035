@@ -85,7 +85,7 @@ st.subheader('Average Cyclists by Month')
 
 # Average number of cyclists by month
 
-# Calculate and print sum value
+# Calculate and print mean value
 
 month_order = ["January", "February", "March", "April", "May", "June", 
                "July", "August", "September", "October", "November", "December"
@@ -113,7 +113,7 @@ st.subheader('Maximum Cyclists by Month')
 
 # Maximum number of cyclists by month
 
-# Calculate and print sum value
+# Calculate and print max value
 
 month_order = ["January", "February", "March", "April", "May", "June", 
                "July", "August", "September", "October", "November", "December"
@@ -141,7 +141,7 @@ st.subheader('Minimum Cyclists by Month')
 
 # Minimum number of cyclists by month
 
-# Calculate and print sum value
+# Calculate and print min value
 
 month_order = ["January", "February", "March", "April", "May", "June", 
                "July", "August", "September", "October", "November", "December"
@@ -162,7 +162,26 @@ min_monthly_totals = (
 )
 
 st.line_chart(min_monthly_totals.set_index("Month"))
-               
+
+
+
+#Comparing sidewalk totals
+
+st.subheader('East and West Sidewalk Yearly Totals')
+
+sidewalk_totals = (
+    df.groupby ('Year')[
+        [
+    
+            'Fremont Bridge Sidewalks, south of N 34th St Cyclist West Sidewalk', 
+            'Fremont Bridge Sidewalks, south of N 34th St Cyclist East Sidewalk'
+        ]
+    ]
+    .sum()
+    
+)
+
+st.area_chart(sidewalk_totals)               
 
 
 
