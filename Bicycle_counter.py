@@ -6,7 +6,7 @@ import numpy as np
 import plotly.express as px
 
 #Adding a Title to my App
-orange:[Welcome to the Fremont Bicycle Counter]
+st.markdown('''Welcome to the Fremont Bicycle Counter! :bicycle:''')
 st.title("Welcome to the Fremont Bicycle Counter!")
 
 
