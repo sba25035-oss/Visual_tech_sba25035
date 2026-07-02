@@ -51,6 +51,9 @@ hist_values = (
     )
 
 st.bar_chart(hist_values)
+st.divider()
+
+
 
 
 st.subheader('Total Cyclists by Month')
