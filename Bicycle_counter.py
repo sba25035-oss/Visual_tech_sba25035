@@ -41,11 +41,13 @@ if show_data:
 
 #Plotly bar chart
 
+green = "#00C853"
+
 fig = px.bar(
 hist_values.reset_index(), 
 x ="Year", 
 y="Fremont Bridge Sidewalks, south of N 34th St Total",
-color_discrete_sequence=[green]
+color_discrete_sequence=[green],
 title="Total Cyclists By Year")
 fig.show()
 
