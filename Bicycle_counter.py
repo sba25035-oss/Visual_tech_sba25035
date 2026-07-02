@@ -35,6 +35,7 @@ data_load_state.text('Loading data...done!')
 
 #Inspect the raw data
 show_data = st.checkbox('Show Raw Data')
+if show_data:
     st.subheader('Raw data')
     st.write(data)
 
