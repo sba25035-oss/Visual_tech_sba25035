@@ -53,8 +53,8 @@ with col1:
         ].sum()
     )
 
-st.bar_chart(hist_values)
-st.divider()
+    st.bar_chart(hist_values)
+    st.divider()
 
 #Total cyclists by Month
 
