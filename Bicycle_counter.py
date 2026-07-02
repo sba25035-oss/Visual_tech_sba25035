@@ -41,13 +41,16 @@ if show_data:
 
 
 #Adding a subheader
-st.subheader('Total Cyclists by Year')
+col1, col2 = st.columns(2)
+
+with col1:
+    st.subheader('Total Cyclists by Year')
 
 #Drawing a histogram
-hist_values = (
-    data.groupby(data[DATE_COLUMN].dt.year)[
+    hist_values = (
+        data.groupby(data[DATE_COLUMN].dt.year)[
                  'Fremont Bridge Sidewalks, south of N 34th St Total'
-                 ].sum()
+        ].sum()
     )
 
 st.bar_chart(hist_values)
@@ -55,8 +58,8 @@ st.divider()
 
 
 
-
-st.subheader('Total Cyclists by Month')
+with col2:
+    st.subheader('Total Cyclists by Month')
 
 # Total number of cyclists by month
 
