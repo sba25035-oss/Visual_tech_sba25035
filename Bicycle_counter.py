@@ -335,18 +335,16 @@ with col8:
     st.subheader('East and West Sidewalk Yearly Totals')
 
     sidewalk_totals = (
-    data.groupby(data[DATE_COLUMN].dt.year)[
-        [
-    
-            'Fremont Bridge Sidewalks, south of N 34th St Cyclist West Sidewalk', 
-            'Fremont Bridge Sidewalks, south of N 34th St Cyclist East Sidewalk'
-        ]
-    ]
-    .sum()
-    
-)
-
-    st.area_chart(sidewalk_totals)               
+    x = "Year",
+    y = [ 
+        "Fremont Bridge Sidewalks, south of N 34th St Cyclist West Sidewalk", 
+        "Fremont Bridge Sidewalks, south of N 34th St Cyclist East Sidewalk"
+        ],
+        barmode="group",
+        title="West Sidewalk Vs East Sidewalk Yearly Totals",
+        color_discrete_sequence=["blue", "red"]
+    )
+           
 
 
 
