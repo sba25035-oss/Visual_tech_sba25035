@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 
-st.audio_input("audio.m4a")
+st.audio("audio.m4a")
 
 
 #Adding a Title to my App
