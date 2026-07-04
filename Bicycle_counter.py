@@ -255,7 +255,7 @@ elif month_option == "Quietest Month":
 
 
 fig = px.line(
-    yearly_totals,
+    monthly_totals,
     x="Month", 
     y="Fremont Bridge Sidewalks, south of N 34th St Total",
     title="Monthly Total Cyclist Crossings",
