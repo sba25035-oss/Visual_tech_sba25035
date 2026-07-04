@@ -226,14 +226,14 @@ with col3:
 
 
 #Comparing sidewalk totals
-with col4:
-    st.subheader('East and West Sidewalk Yearly Totals')
 
-    data["Date"] = pd.to_datetime(data["Date"])
-    data["Year"] = data["Date"].dt.year
+st.subheader('East and West Sidewalk Yearly Totals')
+
+data["Date"] = pd.to_datetime(data["Date"])
+data["Year"] = data["Date"].dt.year
 
         
-    sidewalk_totals = (
+sidewalk_totals = (
         data.groupby ("Year")[
         [
         "Fremont Bridge Sidewalks, south of N 34th St Cyclist West Sidewalk", 
@@ -243,7 +243,7 @@ with col4:
     .sum()
     .reset_index()
 )
-    fig4 = px.bar(
+fig = px.bar(
     sidewalk_totals,
     x = "Year",
     y = [ 
@@ -259,7 +259,7 @@ with col4:
         color_discrete_sequence=["blue", "red"]
     )
     
-    st.plotly_chart(fig4, use_container_width=True)
+st.plotly_chart(fig, use_container_width=True)
 
 
 
