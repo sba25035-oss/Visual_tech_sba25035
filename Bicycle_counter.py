@@ -227,7 +227,7 @@ with col6:
              "Fremont Bridge Sidewalks, south of N 34th St Total",
         ]
         .sum()
-        .reset_index()
+        .reset_index(month_order)
 )
 
     if month_option == "Busiest Month":
@@ -285,7 +285,7 @@ with col7:
              "Fremont Bridge Sidewalks, south of N 34th St Total",
         ]
         .mean()
-        .reset_index()
+        .reset_index(month_order)
 )
 
     if month_option == "Busiest Average Month":
