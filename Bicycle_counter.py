@@ -348,7 +348,7 @@ with col8:
     .sum()
     .reset_index()
 )
-    fig = px.bar(
+    fig8 = px.bar(
     sidewalk_totals,
     x = "Year",
     y = [ 
@@ -359,9 +359,8 @@ with col8:
         title="West Sidewalk Vs East Sidewalk Yearly Totals",
         color_discrete_sequence=["blue", "red"]
     )
-           
-
-
+    
+    st.plotly_chart(fig8, use_container_width=True)
 
 
 
