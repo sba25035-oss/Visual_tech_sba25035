@@ -218,9 +218,9 @@ with col6:
     horizontal=True
 )
 
+   
     data["Date"] = pd.to_datetime(data["Date"])
     data["Month"] = data["Date"].dt.month_name()
-
         
     monthly_totals = (
         data.groupby ("Month")[
@@ -232,12 +232,12 @@ with col6:
 
     if month_option == "Busiest Month":
         monthly_totals = monthly_totals.nlargest(
-        1, "Fremont Bridge Sidewalks, south of N 34th St Total"
+        1, "Fremont Bridge Sidewalks, south of N 34th St Total",
     )
 
     elif month_option == "Quietest Month":
         monthly_totals = monthly_totals.nsmallest(1, 
-                                            "Fremont Bridge Sidewalks, south of N 34th St Total"
+                                            "Fremont Bridge Sidewalks, south of N 34th St Total",
     )
 
 
@@ -261,14 +261,16 @@ col7, col7 = st.columns(2)
 
 with col7:
     st.subheader('Average Cyclists by Month')
+
     month_order = ["January", "February", "March", "April", "May", "June", 
-               "July", "August", "September", "October", "November", "December"
-              ]
-    data["Month"] = pd.Categorical(
+                    "July", "August", "September", "October", "November", "December"
+    ]
+
+    
+    data["Date"] = pd.to_datetime(data["Date"])
     data["Month"] = data["Date"].dt.month_name()
     categories=month_order,
     ordered=True
-)
     
     month_option = st.radio(
     "Choose an Option",
