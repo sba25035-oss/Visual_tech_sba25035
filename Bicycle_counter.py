@@ -187,7 +187,7 @@ fig = px.bar(
     x="Year", 
     y="Fremont Bridge Sidewalks, south of N 34th St Total",
     title="Yearly Total Cyclist Crossings",
-    color_continuous_scale="greens"
+    color_continuous_scale="Greens"
 )
 
 st.plotly_chart(fig, use_container_width=True) 
