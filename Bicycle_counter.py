@@ -5,6 +5,14 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 
+#Adding a Gif image to my app
+st.image(
+    "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHR5MGNjd2hrdXdvZjZ5YW1jbnl0NnNhZmMzNGhqbjhhbnI5aGRqbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d3FActtVPJ5XExEY/giphy.gif",
+         width=250
+)
+
+
+
 #Adding a Title to my App
 
 st.title("🚵‍♀️ Welcome to the Fremont Bicycle Counter! 🚵‍♀️")
