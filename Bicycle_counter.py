@@ -175,6 +175,7 @@ yearly_totals = (
         .groupby ("Year")["Fremont Bridge Sidewalks, south of N 34th St Total"] 
         .sum()
         .reset_index()
+)
 
 
 fig = px.bar(
