@@ -220,7 +220,49 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 
+with col2:
+    st.subheader('Total Cyclists by Month')
+month_option = st.radio(
+    "Choose an Option",
+    ["Busiest Month", "Quietest Month", "All Months"],
+    horizontal=True
+)
 
+
+data["Date"] = pd.to_datetime(data["Date"])
+data["Month"] = data["Date"].dt.month
+
+        
+monthly_totals_totals = (
+        data.groupby ("Month")[
+             "Fremont Bridge Sidewalks, south of N 34th St Total",
+        ]
+        .sum()
+        .reset_index()
+)
+
+if month_option == "Busiest Month":
+    monthly_totals = monthly_totals.nlargest(
+        1, "Fremont Bridge Sidewalks, south of N 34th St Total"
+    )
+
+elif monthly_option == "Quietest Month":
+    monthly_totals = monthly_totals.nsmallest(1, 
+                                            "Fremont Bridge Sidewalks, south of N 34th St Total"
+    )
+
+
+
+
+fig = px.line(
+    yearly_totals,
+    x="Month", 
+    y="Fremont Bridge Sidewalks, south of N 34th St Total",
+    title="Monthly Total Cyclist Crossings",
+    color_discrete_sequence=["yellow"]
+)
+
+st.plotly_chart(fig, use_container_width=True) 
 
 
 
