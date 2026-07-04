@@ -317,7 +317,7 @@ with col7:
 
 
 
-    fig7 = px.bar(
+    fig7 = px.line(
     average_monthly_totals,
     x="Month", 
     y="Fremont Bridge Sidewalks, south of N 34th St Total",
