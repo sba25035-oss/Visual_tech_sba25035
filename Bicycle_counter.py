@@ -170,9 +170,9 @@ st.area_chart(sidewalk_totals)
 # Creating Plotly charts
 
 #Adding columns for layout
-col1, col2 = st.columns(2)
+col5, col6 = st.columns(2)
 
-with col1:
+with col5:
     st.subheader('Total Cyclists by Year')
 
 # adding radio buttons
@@ -220,7 +220,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 
-with col2:
+with col6:
     st.subheader('Total Cyclists by Month')
 month_option = st.radio(
     "Choose an Option",
