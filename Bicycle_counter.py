@@ -172,7 +172,8 @@ st.area_chart(sidewalk_totals)
 yearly_totals = (
         data[DATE_COLUMN] = pd.to_datetime(data["Date"])
         data["Year"] = data["Date"].dt.year
-       yearly_totals = (
+        
+        yearly_totals = (
         data.groupby ("Year")[
              "Fremont Bridge Sidewalks, south of N 34th St Total",
         ]
