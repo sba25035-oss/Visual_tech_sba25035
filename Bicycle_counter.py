@@ -333,8 +333,8 @@ with col7:
 #Comparing sidewalk totals
 with col8:
     st.subheader('East and West Sidewalk Yearly Totals')
-
-    sidewalk_totals = (
+    fig = px.bar(
+    sidewalk_totals,
     x = "Year",
     y = [ 
         "Fremont Bridge Sidewalks, south of N 34th St Cyclist West Sidewalk", 
