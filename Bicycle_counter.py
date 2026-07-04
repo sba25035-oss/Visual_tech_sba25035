@@ -230,13 +230,12 @@ with col6:
     data["Month"] = data["Date"].dt.month_name()
         
     monthly_totals = (
-        data
-        .sort_values("Month")
-        data.groupby ("Month")[
+        data.groupby ("Month", observed=False)[
              "Fremont Bridge Sidewalks, south of N 34th St Total",
         ]
         .sum()
         .reset_index()
+        .sort_values("Month")
 )
 
     if month_option == "Busiest Month":
@@ -295,13 +294,13 @@ with col7:
 
         
     average_monthly_totals = (
-        data
-        .sort_values("Month")
-        data.groupby ("Month")[
+        data.groupby ("Month", observed=False)[
              "Fremont Bridge Sidewalks, south of N 34th St Total",
         ]
         .mean()
         .reset_index()
+        .sort_values("Month")
+)
 )
 
     if month_option == "Busiest Average Month":
