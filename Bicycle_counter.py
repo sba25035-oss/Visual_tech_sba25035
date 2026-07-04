@@ -257,6 +257,7 @@ with col6:
     y="Fremont Bridge Sidewalks, south of N 34th St Total",
     title="Monthly Total Cyclist Crossings",
     color_discrete_sequence=["yellow"]
+    category_orders={"Month": month_order}
 )
 
     st.plotly_chart(fig6, use_container_width=True) 
@@ -322,6 +323,7 @@ with col7:
     y="Fremont Bridge Sidewalks, south of N 34th St Total",
     title="Monthly Total Cyclist Crossings",
     color_discrete_sequence=["orange"]
+    category_orders={"Month": month_order}
 )
 
     st.plotly_chart(fig7, use_container_width=True) 
