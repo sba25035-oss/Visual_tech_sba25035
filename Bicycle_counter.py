@@ -246,7 +246,7 @@ if month_option == "Busiest Month":
         1, "Fremont Bridge Sidewalks, south of N 34th St Total"
     )
 
-elif monthly_option == "Quietest Month":
+elif month_option == "Quietest Month":
     monthly_totals = monthly_totals.nsmallest(1, 
                                             "Fremont Bridge Sidewalks, south of N 34th St Total"
     )
