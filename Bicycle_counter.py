@@ -182,7 +182,7 @@ data["Year"] = data["Date"].dt.year
 
         
 yearly_totals = (
-        filtered_data.groupby ("Year")[
+        data.groupby ("Year")[
              "Fremont Bridge Sidewalks, south of N 34th St Total",
         ]
         .sum()
