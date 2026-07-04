@@ -170,7 +170,7 @@ st.area_chart(sidewalk_totals)
 # Creating Plotly charts
 
 yearly_totals = (
-        data[DATE_COLUMN] = pd.to_datetime(data["Date"])
+        data["Date"] = pd.to_datetime(data["Date"])
         data["Year"] = data["Date"].dt.year
 )
         
