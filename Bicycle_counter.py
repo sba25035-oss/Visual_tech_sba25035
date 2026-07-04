@@ -208,7 +208,7 @@ elif year_option == "Quietest Year":
 
 
 
-fig = px.bar(
+fig5 = px.bar(
     yearly_totals,
     x="Year", 
     y="Fremont Bridge Sidewalks, south of N 34th St Total",
@@ -254,7 +254,7 @@ elif month_option == "Quietest Month":
 
 
 
-fig = px.line(
+fig6 = px.line(
     monthly_totals,
     x="Month", 
     y="Fremont Bridge Sidewalks, south of N 34th St Total",
