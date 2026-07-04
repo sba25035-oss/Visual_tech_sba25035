@@ -357,6 +357,10 @@ with col8:
         ],
         barmode="group",
         title="West Sidewalk Vs East Sidewalk Yearly Totals",
+        labels={
+            "value": "yearly cyclist count", 
+            "variable": "Sidewalk"
+        },
         color_discrete_sequence=["blue", "red"]
     )
     
