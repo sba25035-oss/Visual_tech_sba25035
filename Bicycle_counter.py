@@ -249,7 +249,7 @@ col7, col7 = st.columns(2)
 
 
 with col7:
-    st.subheader('Average Cyclists by Month')')
+    st.subheader('Average Cyclists by Month')
     month_option = st.radio(
     "Choose an Option",
     ["Busiest Average Month", "Quietest Average Month", "All Months"],
