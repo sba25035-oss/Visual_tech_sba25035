@@ -333,6 +333,21 @@ with col7:
 #Comparing sidewalk totals
 with col8:
     st.subheader('East and West Sidewalk Yearly Totals')
+
+    data["Date"] = pd.to_datetime(data["Date"])
+    data["Year"] = data["Date"].dt.year
+
+        
+    sidewalk_totals = (
+        data.groupby ("Year")[
+        [
+        "Fremont Bridge Sidewalks, south of N 34th St Cyclist West Sidewalk", 
+        "Fremont Bridge Sidewalks, south of N 34th St Cyclist East Sidewalk"
+        ]
+    ]
+    .sum()
+    .reset_index()
+)
     fig = px.bar(
     sidewalk_totals,
     x = "Year",
