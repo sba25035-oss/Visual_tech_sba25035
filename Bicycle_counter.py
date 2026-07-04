@@ -301,7 +301,7 @@ with col7:
         .reset_index()
         .sort_values("Month")
 )
-)
+
 
     if month_option == "Busiest Average Month":
         average_monthly_totals = monthly_totals.nlargest(
