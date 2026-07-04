@@ -244,6 +244,113 @@ with col6:
 
 
 
+col7, col7 = st.columns(2)
+
+
+
+with col7:
+    st.subheader('Average Cyclists by Month')')
+    month_option = st.radio(
+    "Choose an Option",
+    ["Busiest Average Month", "Quietest Average Month", "All Months"],
+    horizontal=True
+)
+
+    data["Date"] = pd.to_datetime(data["Date"])
+    data["Month"] = data["Date"].dt.month
+
+        
+    average_monthly_totals = (
+        data.groupby ("Month")[
+             "Fremont Bridge Sidewalks, south of N 34th St Total",
+        ]
+        .mean()
+        .reset_index()
+)
+
+    if month_option == "Busiest Average Month":
+        average_monthly_totals = monthly_totals.nlargest(
+        1, "Fremont Bridge Sidewalks, south of N 34th St Total"
+    )
+
+    elif month_option == "Quietest Average Month":
+        average_monthly_totals = monthly_totals.nsmallest(1, 
+                                            "Fremont Bridge Sidewalks, south of N 34th St Total"
+    )
+
+
+
+
+    fig7 = px.line(
+    average_monthly_totals,
+    x="Month", 
+    y="Fremont Bridge Sidewalks, south of N 34th St Total",
+    title="Monthly Total Cyclist Crossings",
+    color_discrete_sequence=["pink"]
+)
+
+    st.plotly_chart(fig7, use_container_width=True) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #Comparing sidewalk totals
 
