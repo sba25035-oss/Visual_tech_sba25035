@@ -171,8 +171,9 @@ st.area_chart(sidewalk_totals)
 
 yearly_totals = (
         data
-        .sort_values("Date")
+        .sort_values("Year")[
         .groupby ("Date")["Fremont Bridge Sidewalks, south of N 34th St Total"] 
+        ]
         .sum()
         .reset_index()
 )
@@ -180,10 +181,10 @@ yearly_totals = (
 
 fig = px.bar(
     yearly_totals,
-    x="Date", 
+    x="Year", 
     y="Fremont Bridge Sidewalks, south of N 34th St Total",
     title="Yearly Total Cyclist Crossings",
-    color_continuous_scale="greens"
+    color_continuous_scale="greens",
 )
 
 st.plotly_chart(fig, use_container_width=True) 
