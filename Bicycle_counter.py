@@ -5,6 +5,8 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 
+st.audio_input("c:\Users\donei\OneDrive\Documents\Sound Recordings\Recording (2).m4a")
+
 
 #Adding a Title to my App
 
