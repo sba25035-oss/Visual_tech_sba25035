@@ -169,17 +169,37 @@ st.area_chart(sidewalk_totals)
 
 # Creating Plotly charts
 
+# adding radio buttons
+year_option = st.radio(
+    "Choose an Option",
+    ["Busiest Year", "Quietest Year", "All Years"],
+    horizontal=True
+)
+
+
 data["Date"] = pd.to_datetime(data["Date"])
 data["Year"] = data["Date"].dt.year
 
         
 yearly_totals = (
-        data.groupby ("Year")[
+        filtered_data.groupby ("Year")[
              "Fremont Bridge Sidewalks, south of N 34th St Total",
         ]
         .sum()
         .reset_index()
 )
+
+if year_option == "Busiest Year":
+    yearly_totals = yearly_totals.nlargest(
+        1, "Fremont Bridge Sidewalks, south of N 34th St Total"
+    )
+
+elif year_option == "Quietest Year":
+    yearly_totals = yearly_totals.nsmallest(1, 
+                                            "Fremont Bridge Sidewalks, south of N 34th St Total"
+    )
+
+
 
 
 fig = px.bar(
