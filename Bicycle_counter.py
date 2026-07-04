@@ -175,12 +175,12 @@ with col5:
 )
 
     if year_option == "Busiest Year":
-    yearly_totals = yearly_totals.nlargest(
+        yearly_totals = yearly_totals.nlargest(
         1, "Fremont Bridge Sidewalks, south of N 34th St Total"
     )
 
     elif year_option == "Quietest Year":
-    yearly_totals = yearly_totals.nsmallest(1, 
+        yearly_totals = yearly_totals.nsmallest(1, 
                                             "Fremont Bridge Sidewalks, south of N 34th St Total"
     )
 
@@ -207,12 +207,11 @@ with col6:
     horizontal=True
 )
 
-
     data["Date"] = pd.to_datetime(data["Date"])
     data["Month"] = data["Date"].dt.month
 
         
-    monthly_totals_totals = (
+    monthly_totals = (
         data.groupby ("Month")[
              "Fremont Bridge Sidewalks, south of N 34th St Total",
         ]
@@ -221,12 +220,12 @@ with col6:
 )
 
     if month_option == "Busiest Month":
-    monthly_totals = monthly_totals.nlargest(
+        monthly_totals = monthly_totals.nlargest(
         1, "Fremont Bridge Sidewalks, south of N 34th St Total"
     )
 
     elif month_option == "Quietest Month":
-    monthly_totals = monthly_totals.nsmallest(1, 
+        monthly_totals = monthly_totals.nsmallest(1, 
                                             "Fremont Bridge Sidewalks, south of N 34th St Total"
     )
 
