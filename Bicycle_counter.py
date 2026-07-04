@@ -146,7 +146,6 @@ with col4:
     st.line_chart(max_monthly_totals.set_index("Month"))
 
 
-
 # Creating Plotly charts
 
 #Adding columns for layout
@@ -156,31 +155,31 @@ with col5:
     st.subheader('Total Cyclists by Year')
 
 # adding radio buttons
-year_option = st.radio(
+    year_option = st.radio(
     "Choose an Option",
     ["Busiest Year", "Quietest Year", "All Years"],
     horizontal=True
 )
 
 
-data["Date"] = pd.to_datetime(data["Date"])
-data["Year"] = data["Date"].dt.year
+    data["Date"] = pd.to_datetime(data["Date"])
+    data["Year"] = data["Date"].dt.year
 
         
-yearly_totals = (
+    yearly_totals = (
         data.groupby ("Year")[
-             "Fremont Bridge Sidewalks, south of N 34th St Total",
+            "Fremont Bridge Sidewalks, south of N 34th St Total",
         ]
-        .sum()
-        .reset_index()
+    .sum()
+    .reset_index()
 )
 
-if year_option == "Busiest Year":
+    if year_option == "Busiest Year":
     yearly_totals = yearly_totals.nlargest(
         1, "Fremont Bridge Sidewalks, south of N 34th St Total"
     )
 
-elif year_option == "Quietest Year":
+    elif year_option == "Quietest Year":
     yearly_totals = yearly_totals.nsmallest(1, 
                                             "Fremont Bridge Sidewalks, south of N 34th St Total"
     )
@@ -188,7 +187,7 @@ elif year_option == "Quietest Year":
 
 
 
-fig5 = px.bar(
+    fig5 = px.bar(
     yearly_totals,
     x="Year", 
     y="Fremont Bridge Sidewalks, south of N 34th St Total",
@@ -196,24 +195,24 @@ fig5 = px.bar(
     color_discrete_sequence=["green"]
 )
 
-st.plotly_chart(fig5, use_container_width=True) 
+    st.plotly_chart(fig5, use_container_width=True) 
 
 
 
 with col6:
     st.subheader('Total Cyclists by Month')
-month_option = st.radio(
+    month_option = st.radio(
     "Choose an Option",
     ["Busiest Month", "Quietest Month", "All Months"],
     horizontal=True
 )
 
 
-data["Date"] = pd.to_datetime(data["Date"])
-data["Month"] = data["Date"].dt.month
+    data["Date"] = pd.to_datetime(data["Date"])
+    data["Month"] = data["Date"].dt.month
 
         
-monthly_totals_totals = (
+    monthly_totals_totals = (
         data.groupby ("Month")[
              "Fremont Bridge Sidewalks, south of N 34th St Total",
         ]
@@ -221,12 +220,12 @@ monthly_totals_totals = (
         .reset_index()
 )
 
-if month_option == "Busiest Month":
+    if month_option == "Busiest Month":
     monthly_totals = monthly_totals.nlargest(
         1, "Fremont Bridge Sidewalks, south of N 34th St Total"
     )
 
-elif month_option == "Quietest Month":
+    elif month_option == "Quietest Month":
     monthly_totals = monthly_totals.nsmallest(1, 
                                             "Fremont Bridge Sidewalks, south of N 34th St Total"
     )
@@ -234,7 +233,7 @@ elif month_option == "Quietest Month":
 
 
 
-fig6 = px.line(
+    fig6 = px.line(
     monthly_totals,
     x="Month", 
     y="Fremont Bridge Sidewalks, south of N 34th St Total",
@@ -242,7 +241,7 @@ fig6 = px.line(
     color_discrete_sequence=["yellow"]
 )
 
-st.plotly_chart(fig6, use_container_width=True) 
+    st.plotly_chart(fig6, use_container_width=True) 
 
 
 
