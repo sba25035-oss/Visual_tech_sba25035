@@ -256,7 +256,7 @@ with col6:
     x="Month", 
     y="Fremont Bridge Sidewalks, south of N 34th St Total",
     title="Monthly Total Cyclist Crossings",
-    color_discrete_sequence=["yellow"]
+    color_discrete_sequence=["yellow"],
     category_orders={"Month": month_order}
 )
 
@@ -322,7 +322,7 @@ with col7:
     x="Month", 
     y="Fremont Bridge Sidewalks, south of N 34th St Total",
     title="Monthly Total Cyclist Crossings",
-    color_discrete_sequence=["orange"]
+    color_discrete_sequence=["orange"],
     category_orders={"Month": month_order}
 )
 
