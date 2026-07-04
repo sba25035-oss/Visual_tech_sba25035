@@ -147,26 +147,6 @@ with col4:
 
 
 
-
-#Comparing sidewalk totals
-
-st.subheader('East and West Sidewalk Yearly Totals')
-
-sidewalk_totals = (
-    data.groupby(data[DATE_COLUMN].dt.year)[
-        [
-    
-            'Fremont Bridge Sidewalks, south of N 34th St Cyclist West Sidewalk', 
-            'Fremont Bridge Sidewalks, south of N 34th St Cyclist East Sidewalk'
-        ]
-    ]
-    .sum()
-    
-)
-
-st.area_chart(sidewalk_totals)               
-
-
 # Creating Plotly charts
 
 #Adding columns for layout
@@ -263,6 +243,27 @@ fig6 = px.line(
 )
 
 st.plotly_chart(fig6, use_container_width=True) 
+
+
+
+
+#Comparing sidewalk totals
+
+st.subheader('East and West Sidewalk Yearly Totals')
+
+sidewalk_totals = (
+    data.groupby(data[DATE_COLUMN].dt.year)[
+        [
+    
+            'Fremont Bridge Sidewalks, south of N 34th St Cyclist West Sidewalk', 
+            'Fremont Bridge Sidewalks, south of N 34th St Cyclist East Sidewalk'
+        ]
+    ]
+    .sum()
+    
+)
+
+st.area_chart(sidewalk_totals)               
 
 
 
