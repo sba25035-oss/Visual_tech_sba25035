@@ -317,10 +317,10 @@ with col7:
 
 
 
-    fig7 = px.line(
+    fig7 = px.bar(
     average_monthly_totals,
-    x="Month", 
-    y="Fremont Bridge Sidewalks, south of N 34th St Total",
+    x="Fremont Bridge Sidewalks, south of N 34th St Total", 
+    y="Month",
     title="Monthly Total Cyclist Crossings",
     color_discrete_sequence=["orange"],
     category_orders={"Month": month_order}
