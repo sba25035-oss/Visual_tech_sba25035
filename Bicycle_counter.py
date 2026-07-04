@@ -41,117 +41,12 @@ if show_data:
 
 
 
+# Creating Plotly charts
+
 #Adding columns for layout
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader('Total Cyclists by Year')
-
-#Drawing a histogram
-    hist_values = (
-        data.groupby(data[DATE_COLUMN].dt.year)[
-                 'Fremont Bridge Sidewalks, south of N 34th St Total'
-        ].sum()
-    )
-
-    st.bar_chart(hist_values)
-    st.divider()
-
-#Total cyclists by Month
-
-with col2:
-    st.subheader('Total Cyclists by Month')
-
-
-# Calculate and print sum value
-
-    month_order = ["January", "February", "March", "April", "May", "June", 
-               "July", "August", "September", "October", "November", "December"
-              ]
-    data["Month"] = pd.Categorical(
-    data["Month"],
-    categories=month_order,
-    ordered=True
-)
-
-    monthly_totals = (
-        data
-        .sort_values("Month")
-        .groupby ("Month")["Fremont Bridge Sidewalks, south of N 34th St Total"] 
-        .sum()
-        .reset_index()
-
-    )
-
-    st.line_chart(monthly_totals.set_index("Month"))
-
-
-
-#Adding columns for layout
-col3, col4 = st.columns(2)
-
-with col3:
-    st.subheader('Average Cyclists by Month')
-
-# Average number of cyclists by month
-
-# Calculate and print mean value
-
-    month_order = ["January", "February", "March", "April", "May", "June", 
-               "July", "August", "September", "October", "November", "December"
-              ]
-    data["Month"] = pd.Categorical(
-    data["Month"],
-    categories=month_order,
-    ordered=True
-)
-
-    average_monthly_totals = (
-    data
-    .sort_values("Month")
-    .groupby ("Month")["Fremont Bridge Sidewalks, south of N 34th St Total"] 
-    .mean()
-    .reset_index()
-
-)
-
-    st.area_chart(average_monthly_totals.set_index("Month"))
-
-
-with col4:
-    st.subheader('Maximum Cyclists by Month')
-
-# Maximum number of cyclists by month
-
-# Calculate and print max value
-
-    month_order = ["January", "February", "March", "April", "May", "June", 
-               "July", "August", "September", "October", "November", "December"
-              ]
-    data["Month"] = pd.Categorical(
-    data["Month"],
-    categories=month_order,
-    ordered=True
-)
-
-    max_monthly_totals = (
-    data
-    .sort_values("Month")
-    .groupby ("Month")["Fremont Bridge Sidewalks, south of N 34th St Total"] 
-    .max()
-    .reset_index()
-
-)
-
-    st.line_chart(max_monthly_totals.set_index("Month"))
-
-
-# Creating Plotly charts
-
-#Adding columns for layout
-col5, col6 = st.columns(2)
-
-with col5:
     st.subheader('Total Cyclists by Year')
 
 # adding radio buttons
@@ -187,7 +82,7 @@ with col5:
 
 
 
-    fig5 = px.bar(
+    fig1 = px.bar(
     yearly_totals,
     x="Year", 
     y="Fremont Bridge Sidewalks, south of N 34th St Total",
@@ -195,11 +90,11 @@ with col5:
     color_discrete_sequence=["green"]
 )
 
-    st.plotly_chart(fig5, use_container_width=True) 
+    st.plotly_chart(fig1, use_container_width=True) 
 
 
 
-with col6:
+with col2:
     st.subheader('Total Cyclists by Month')
 
     month_order = ["January", "February", "March", "April", "May", "June", 
@@ -251,7 +146,7 @@ with col6:
 
 
 
-    fig6 = px.area(
+    fig2 = px.area(
     monthly_totals,
     x="Month", 
     y="Fremont Bridge Sidewalks, south of N 34th St Total",
@@ -260,13 +155,13 @@ with col6:
     category_orders={"Month": month_order}
 )
 
-    st.plotly_chart(fig6, use_container_width=True) 
+    st.plotly_chart(fig2, use_container_width=True) 
 
 
 #Adding columns for layout
-col7, col8 = st.columns(2)
+col3, col4 = st.columns(2)
 
-with col7:
+with col3:
     st.subheader('Average Cyclists by Month')
 
     month_order = ["January", "February", "March", "April", "May", "June", 
@@ -317,7 +212,7 @@ with col7:
 
 
 
-    fig7 = px.bar(
+    fig3 = px.bar(
     average_monthly_totals,
     x="Fremont Bridge Sidewalks, south of N 34th St Total", 
     y="Month",
@@ -326,12 +221,12 @@ with col7:
     category_orders={"Month": month_order}
 )
 
-    st.plotly_chart(fig7, use_container_width=True) 
+    st.plotly_chart(fig3, use_container_width=True) 
 
 
 
 #Comparing sidewalk totals
-with col8:
+with col4:
     st.subheader('East and West Sidewalk Yearly Totals')
 
     data["Date"] = pd.to_datetime(data["Date"])
@@ -348,7 +243,7 @@ with col8:
     .sum()
     .reset_index()
 )
-    fig8 = px.bar(
+    fig4 = px.bar(
     sidewalk_totals,
     x = "Year",
     y = [ 
@@ -364,7 +259,7 @@ with col8:
         color_discrete_sequence=["blue", "red"]
     )
     
-    st.plotly_chart(fig8, use_container_width=True)
+    st.plotly_chart(fig4, use_container_width=True)
 
 
 
