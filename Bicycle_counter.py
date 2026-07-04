@@ -330,70 +330,11 @@ with col7:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #Comparing sidewalk totals
+with col8:
+    st.subheader('East and West Sidewalk Yearly Totals')
 
-st.subheader('East and West Sidewalk Yearly Totals')
-
-sidewalk_totals = (
+    sidewalk_totals = (
     data.groupby(data[DATE_COLUMN].dt.year)[
         [
     
@@ -405,7 +346,7 @@ sidewalk_totals = (
     
 )
 
-st.area_chart(sidewalk_totals)               
+    st.area_chart(sidewalk_totals)               
 
 
 
