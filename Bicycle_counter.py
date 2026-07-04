@@ -217,6 +217,8 @@ with col6:
     categories=month_order,
     ordered=True
 
+
+
     month_option = st.radio(
     "Choose an Option",
     ["Busiest Month", "Quietest Month", "All Months"],
@@ -228,6 +230,8 @@ with col6:
     data["Month"] = data["Date"].dt.month_name()
         
     monthly_totals = (
+        data
+        .sort_values("Month")
         data.groupby ("Month")[
              "Fremont Bridge Sidewalks, south of N 34th St Total",
         ]
@@ -291,6 +295,8 @@ with col7:
 
         
     average_monthly_totals = (
+        data
+        .sort_values("Month")
         data.groupby ("Month")[
              "Fremont Bridge Sidewalks, south of N 34th St Total",
         ]
