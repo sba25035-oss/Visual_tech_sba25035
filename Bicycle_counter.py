@@ -251,7 +251,7 @@ with col6:
 
 
 
-    fig6 = px.line(
+    fig6 = px.area(
     monthly_totals,
     x="Month", 
     y="Fremont Bridge Sidewalks, south of N 34th St Total",
