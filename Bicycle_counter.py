@@ -206,7 +206,12 @@ with col6:
                     "July", "August", "September", "October", "November", "December"
     ]
 
-    
+    data["Month"] = pd.Categorical(
+    data["Month"],
+    categories=month_order,
+    ordered=True
+    )
+
     data["Date"] = pd.to_datetime(data["Date"])
     data["Month"] = data["Date"].dt.month_name()
     categories=month_order,
@@ -227,7 +232,7 @@ with col6:
              "Fremont Bridge Sidewalks, south of N 34th St Total",
         ]
         .sum()
-        .reset_index(month_order)
+        .reset_index()
 )
 
     if month_option == "Busiest Month":
@@ -264,6 +269,11 @@ with col7:
                     "July", "August", "September", "October", "November", "December"
     ]
 
+    data["Month"] = pd.Categorical(
+    data["Month"],
+    categories=month_order,
+    ordered=True
+    )
     
     data["Date"] = pd.to_datetime(data["Date"])
     data["Month"] = data["Date"].dt.month_name()
@@ -285,7 +295,7 @@ with col7:
              "Fremont Bridge Sidewalks, south of N 34th St Total",
         ]
         .mean()
-        .reset_index(month_order)
+        .reset_index()
 )
 
     if month_option == "Busiest Average Month":
