@@ -254,10 +254,8 @@ with col6:
     st.plotly_chart(fig6, use_container_width=True) 
 
 
-
-col7, col7 = st.columns(2)
-
-
+#Adding columns for layout
+col7, col8 = st.columns(2)
 
 with col7:
     st.subheader('Average Cyclists by Month')
@@ -279,7 +277,7 @@ with col7:
 )
 
     data["Date"] = pd.to_datetime(data["Date"])
-    data["Month"] = data["Date"].dt.month
+    data["Month"] = data["Date"].dt.month_name()
 
         
     average_monthly_totals = (
