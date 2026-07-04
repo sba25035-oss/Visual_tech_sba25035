@@ -203,13 +203,15 @@ with col6:
     st.subheader('Total Cyclists by Month')
 
     month_order = ["January", "February", "March", "April", "May", "June", 
-               "July", "August", "September", "October", "November", "December"
-              ]
-    data["Month"] = pd.Categorical(
-    data["Month"],
+                    "July", "August", "September", "October", "November", "December"
+    ]
+
+    
+    data["Date"] = pd.to_datetime(data["Date"])
+    data["Month"] = data["Date"].dt.month_name()
     categories=month_order,
     ordered=True
-)
+
     month_option = st.radio(
     "Choose an Option",
     ["Busiest Month", "Quietest Month", "All Months"],
@@ -217,7 +219,7 @@ with col6:
 )
 
     data["Date"] = pd.to_datetime(data["Date"])
-    data["Month"] = data["Date"].dt.month
+    data["Month"] = data["Date"].dt.month_name()
 
         
     monthly_totals = (
@@ -263,7 +265,7 @@ with col7:
                "July", "August", "September", "October", "November", "December"
               ]
     data["Month"] = pd.Categorical(
-    data["Month"],
+    data["Month"] = data["Date"].dt.month_name()
     categories=month_order,
     ordered=True
 )
