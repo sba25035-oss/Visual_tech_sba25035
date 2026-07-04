@@ -201,6 +201,15 @@ with col5:
 
 with col6:
     st.subheader('Total Cyclists by Month')
+
+    month_order = ["January", "February", "March", "April", "May", "June", 
+               "July", "August", "September", "October", "November", "December"
+              ]
+    data["Month"] = pd.Categorical(
+    data["Month"],
+    categories=month_order,
+    ordered=True
+)
     month_option = st.radio(
     "Choose an Option",
     ["Busiest Month", "Quietest Month", "All Months"],
@@ -250,6 +259,15 @@ col7, col7 = st.columns(2)
 
 with col7:
     st.subheader('Average Cyclists by Month')
+    month_order = ["January", "February", "March", "April", "May", "June", 
+               "July", "August", "September", "October", "November", "December"
+              ]
+    data["Month"] = pd.Categorical(
+    data["Month"],
+    categories=month_order,
+    ordered=True
+)
+    
     month_option = st.radio(
     "Choose an Option",
     ["Busiest Average Month", "Quietest Average Month", "All Months"],
